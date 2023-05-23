@@ -2,10 +2,10 @@
 
 CREATE TABLE Employee
 (
-	"ID" int PRIMARY KEY,
+	"emp_id" int PRIMARY KEY,
 	"first_name" varchar(50) Not NULL, 
 	"last_name" varchar(50),
-	"Department" varchar(100),
+	"department" varchar(100),
 	"manager_id" int,
 	"salary" numeric,
 	"expertise" varchar(50)
