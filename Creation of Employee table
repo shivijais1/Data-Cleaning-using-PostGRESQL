@@ -1,3 +1,5 @@
+-- creating a table named employee
+
 CREATE TABLE Employee
 (
 	"ID" int PRIMARY KEY,
