@@ -1,8 +1,73 @@
--- Making the first letter as capital in both first and last name and Concating the first name and last name as name ----
+--//  Making the first letter as capital in both first and last name and Concating the first name and last name as name ----
 --
 SELECT CONCAT(CONCAT(UPPER(SUBSTRING(first_name, 1,1)), LOWER(SUBSTRING(first_name, 2))), 
 CONCAT(UPPER(SUBSTRING(last_name, 1,1)), LOWER(SUBSTRING(last_name, 2)))) 
 as name  FROM employee;
 
--- Making the first letter as capital in expertise and triming the extra spaces ----
+
+--// Making the first letter as capital in expertise and triming the extra spaces ----
 --
+
+SELECT CONCAT(UPPER(SUBSTRING(TRIM(expertise), 1, 1)), LOWER(SUBSTRING(TRIM(expertise), 2))) from employee;
+
+
+
+--// Making a list of employee ordered by Salary (highest salary first)-----
+--
+
+SELECT 
+  emp_id,
+  last_name,
+  first_name,
+  salary,
+  RANK() OVER (ORDER BY salary DESC) as ranking
+FROM employee
+ORDER BY ranking
+
+
+--// Sorting the list of the employee with top 5 -------
+
+
+WITH employee_ranking AS (
+  SELECT
+    emp_id,
+    last_name,
+    first_name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) as ranking
+  FROM employee
+)
+SELECT
+  emp_id,
+  last_name,
+  first_name,
+  salary
+FROM employee_ranking
+WHERE ranking <= 5
+ORDER BY ranking
+
+
+--// listing the second highest salary by department -------
+
+
+WITH employee_ranking AS (
+  SELECT
+    emp_id,
+    last_name,
+    first_name,
+    salary,
+    department,
+    RANK() OVER (PARTITION BY department ORDER BY salary DESC) as ranking
+  FROM employee
+)
+SELECT
+  
+  emp_id,
+  first_name,
+  last_name,
+  department,
+  salary
+FROM employee_ranking
+WHERE ranking = 2
+ORDER BY department, last_name
+
