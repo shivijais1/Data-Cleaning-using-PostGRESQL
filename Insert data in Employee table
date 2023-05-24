@@ -3,13 +3,13 @@
 INSERT INTO employee
 ( emp_id, first_name, last_name, department, manager_id, salary, expertise )
 VALUES 
-( 100, 'JOHN', 'white', 'IT', 103, 120000, 'Senior'),
-( 101, 'MARY', 'danner', 'Account', 109, 80000, 'junior'),
+( 100, 'JOHN', 'white', 'IT', 103, 120000, 'Senior '),
+( 101, 'MARY', 'danner', 'Account', 109, 80000, ' junior'),
 ( 102, 'Ann', 'lynn', 'Sales', 107, 140000, 'Semisenior'),
-( 103, 'peter', 'oconnor', 'it', 110, 130000, 'SENIOR'),
-( 106, 'SUE', 'sanchez', 'sales', 107, 110000, 'junior'),
+( 103, 'peter', 'oconnor', 'it', 110, 130000, ' SENIOR'),
+( 106, 'SUE', 'sanchez', 'sales', 107, 110000, ' junior'),
 ( 107, 'marta', 'Doe', 'sales', 110, 180000, 'senior'),
-( 109, 'ann', 'danner', 'account', 110, 90000, 'senior'),
+( 109, 'ann', 'danner', 'account', 110, 90000, 'senior '),
 ( 110, 'simon', 'yang', 'CEO', null, 250000, 'senior'),
 ( 111, 'juan', 'grave', 'sales', 102, 37000, 'junior')
 ;
